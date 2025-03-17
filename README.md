@@ -1,54 +1,62 @@
-# React + TypeScript + Vite
+## 자격저격의 메일링 서비스 템플릿
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1. 프로젝트 정보
 
-Currently, two official plugins are available:
+- 기술스택 : React, TypeScript, Vite
+- 나머지는 추후 결정 예정
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 2. 프로젝트 설명
 
-## Expanding the ESLint configuration
+- 자격저격의 메일링 서비스 구독 시 사용할 템플릿입니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. 프로젝트 폴더 구조
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+/src
+├── assets
+│ └── styles // 컴포넌트별, 공통 스타일 코드
+├── components
+│ ├── ExamDay.tsx // 시험일 알림 템플릿
+│ ├── ReceiptDay.tsx // 접수기간 시작 알림 템플릿
+│ └── index.ts // 프로젝트 진입점
+├── App.tsx // 기본 페이지 (템플릿 컴포넌트 표시 여부)
+└── main.tsx  // 애플리케이션 최초 실행 모듈
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 4. 프로젝트 실행
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm install
+```
+
+```
+npm run dev
+```
+
+## Github 형상 관리
+
+### 1. 커밋 메시지 규칙
+
+```
+<타입> 리스트
+✨ Feat             : 새로운 기능 추가
+🚧 Progress         : 작업 진행 중인 코드
+🎯 Fix              : 코드 수정
+🐛 Bug              : 버그 수정
+🎨 Design           : CSS 등 사용자 UI 디자인 변경
+💄 Style            : 코드 포맷 변경, 세미 콜론 누락 (비즈니스 로직 변경 X)
+♻️ Refactor         : 프로덕션 코드 리팩토링
+💡 Comment          : 필요한 주석 추가 및 변경
+📋 Docs             : 문서 수정 (문서 추가, 수정, 삭제, README)
+✅ Test             : 테스트 추가, 테스트 리팩토링 (비즈니스 로직 변경 X)
+🔖 Chore            : 빌드 태스크 업데이트, 패키지 매니저 설정할 경우 (비즈니스 로직 변경 X)
+📝 Rename           : 파일 혹은 폴더명을 수정, 옮기는 작업만
+🔥 Remove           : 사용하지 않는 파일 혹은 폴더를 삭제하는 경우
+📌 Init             : 초기 생성
+🚑 !BREAKING CHANGE : 커다란 API 혹은 로직 변경
+🔔 Merge Request    : Merge Request 생성(Branch 병합, Conflict 해결 등)
+```
+
+### 2. PR 기록 남기기
+
+- 코드 품질을 검증하기 위해 feature 브랜치에서 단위 테스트 완료 후 dev 브랜치로 올릴떄는 Pull Request합니다.
